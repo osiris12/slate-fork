@@ -2,244 +2,183 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
   - javascript
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-
 includes:
-  - errors
+  # - errors
 
 search: true
 
 code_clipboard: true
 
-meta:
-  - name: description
-    content: Documentation for the Kittn API
+# meta:
+#   - name: description
+#     content: Documentation for the Kittn API
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Bienvenidos amigos! Here you can find the documentation for Qmend's REST API. 
 
 # Authentication
 
-> To authorize, use this code:
 
-```ruby
-require 'kittn'
+For authentication, we use Laravel Sanctum. To authenticate SPAs, follow [Laravel's doumentation](https://laravel.com/docs/9.x/sanctum#spa-authentication).
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+# Businesses
 
-```python
-import kittn
+## Get Businesses
 
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> The response JSON will be structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+
+{
+  "id": 2,
+  "name": "Walker, Parisian and McDermott",
+  "status": 1,
+  "phone_number": "843-915-0927",
+  "address": "72245 Timothy Ford Suite 906\nMitchellstad, NJ 78606",
+  "zipcode": "88895-1724",
+  "city_id": 126,
+  "state_id": "WA",
+  "country_id": 1,
+  "lat": "31.3819",
+  "lng": "-37.1335",
+  "created_at": "2022-08-23T20:48:51.000000Z",
+  "updated_at": "2022-08-23T20:48:51.000000Z",
+  "reviews": [
+    {
+      "id": 27,
+      "business_id": 2,
+      "source_id": 1,
+      "number_of_reviews": 305,
+      "score": 1.4,
+      "link": "https://www.google.com/maps/place/Siena+Tavern/@41.8890864,-87.6298924,15z/data=!3m1!5s0x880e2cb74cae0e7b:0xb7392f617178520d!4m7!3m6!1s0x0:0xecd6f9b48656e27b!8m2!3d41.8890864!4d-87.6298924!9m1!1b1",
+      "created_at": "2022-08-23T20:50:48.000000Z",
+      "updated_at": "2022-08-23T20:50:48.000000Z",
+      "source": {
+        "id": 1,
+        "name": "Google",
+        "created_at": "2022-08-23T20:43:31.000000Z",
+        "updated_at": "2022-08-23T20:43:31.000000Z"
+      }
+    },
+    {
+      "id": 99,
+      "business_id": 2,
+      "source_id": 2,
+      "number_of_reviews": 1320,
+      "score": 3.4,
+      "link": "https://www.google.com/maps/place/Siena+Tavern/@41.8890864,-87.6298924,15z/data=!3m1!5s0x880e2cb74cae0e7b:0xb7392f617178520d!4m7!3m6!1s0x0:0xecd6f9b48656e27b!8m2!3d41.8890864!4d-87.6298924!9m1!1b1",
+      "created_at": "2022-08-23T20:50:58.000000Z",
+      "updated_at": "2022-08-23T20:50:58.000000Z",
+      "source": {
+        "id": 2,
+        "name": "Yelp",
+        "created_at": "2022-08-23T20:43:31.000000Z",
+        "updated_at": "2022-08-23T20:43:31.000000Z"
+      }
+    },
+    {
+      "id": 80,
+      "business_id": 2,
+      "source_id": 3,
+      "number_of_reviews": 163,
+      "score": 1.5,
+      "link": "https://www.google.com/maps/place/Siena+Tavern/@41.8890864,-87.6298924,15z/data=!3m1!5s0x880e2cb74cae0e7b:0xb7392f617178520d!4m7!3m6!1s0x0:0xecd6f9b48656e27b!8m2!3d41.8890864!4d-87.6298924!9m1!1b1",
+      "created_at": "2022-08-23T20:50:52.000000Z",
+      "updated_at": "2022-08-23T20:50:52.000000Z",
+      "source": {
+        "id": 3,
+        "name": "Tripadvisor",
+        "created_at": "2022-08-23T20:43:31.000000Z",
+        "updated_at": "2022-08-23T20:43:31.000000Z"
+      }
+    },
+    {
+      "id": 64,
+      "business_id": 2,
+      "source_id": 4,
+      "number_of_reviews": 1863,
+      "score": 2.3,
+      "link": "https://www.google.com/maps/place/Siena+Tavern/@41.8890864,-87.6298924,15z/data=!3m1!5s0x880e2cb74cae0e7b:0xb7392f617178520d!4m7!3m6!1s0x0:0xecd6f9b48656e27b!8m2!3d41.8890864!4d-87.6298924!9m1!1b1",
+      "created_at": "2022-08-23T20:50:52.000000Z",
+      "updated_at": "2022-08-23T20:50:52.000000Z",
+      "source": {
+        "id": 4,
+        "name": "Grubhub",
+        "created_at": "2022-08-23T20:43:31.000000Z",
+        "updated_at": "2022-08-23T20:43:31.000000Z"
+      }
+    },
+    {
+      "id": 44,
+      "business_id": 2,
+      "source_id": 5,
+      "number_of_reviews": 1073,
+      "score": 3.1,
+      "link": "https://www.google.com/maps/place/Siena+Tavern/@41.8890864,-87.6298924,15z/data=!3m1!5s0x880e2cb74cae0e7b:0xb7392f617178520d!4m7!3m6!1s0x0:0xecd6f9b48656e27b!8m2!3d41.8890864!4d-87.6298924!9m1!1b1",
+      "created_at": "2022-08-23T20:50:50.000000Z",
+      "updated_at": "2022-08-23T20:50:50.000000Z",
+      "source": {
+        "id": 5,
+        "name": "OpenTable",
+        "created_at": "2022-08-23T20:43:31.000000Z",
+        "updated_at": "2022-08-23T20:43:31.000000Z"
+      }
+    }
+  ],
+  "hoursofoperations": [
+    {
+      "id": 41,
+      "business_id": 2,
+      "open_time": "12:00 a.m.",
+      "close_time": "8:00 p.m.",
+      "day": "Monday",
+      "created_at": "2022-08-23T20:52:08.000000Z",
+      "updated_at": "2022-08-23T20:52:08.000000Z"
+    },
+    {
+      "id": 6,
+      "business_id": 2,
+      "open_time": "10:00 a.m.",
+      "close_time": "11:00 p.m.",
+      "day": "Sunday",
+      "created_at": "2022-08-23T20:51:30.000000Z",
+      "updated_at": "2022-08-23T20:51:30.000000Z"
+    },
+    {
+      "id": 33,
+      "business_id": 2,
+      "open_time": "7:00 a.m.",
+      "close_time": "8:00 p.m.",
+      "day": "Tuesday",
+      "created_at": "2022-08-23T20:51:52.000000Z",
+      "updated_at": "2022-08-23T20:51:52.000000Z"
+    }
+  ]
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all businesses if no query parameter is provided. Use a query parameter to get specific business(es).
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://qmend.com/api/business`
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Parameter | Default | Description | Type
+--------- | ------- | ----------- | ----
+name | N/A | If name is given, the query will return a result of all businesses that match any part of the value provided. | String
+business_id | N/A | Returns business assigned to business_id. | Int
+status | N/A | Returns all businesses with status value.  | Boolean
+zipcode | N/A | Returns all businesses with zipcode value. | Int
+city_id | N/A | Returns all businesses with city_id value. | Int
+state_id | N/A | Returns all businesses with state_id value. Use a state's 2 letter abbreviation. | String
+
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+A combination of the listed parameters can be used for more specific results.
 </aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
